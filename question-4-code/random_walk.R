@@ -1,10 +1,12 @@
-#install.packages("ggplot2")
-#install.packages("gridExtra")
+install.packages("ggplot2")
+install.packages("gridExtra")
 
 library(ggplot2)
 library(gridExtra)
 
-random_walk  <- function (n_steps) {
+random_walk  <- function (n_steps, seed=NULL) {
+  
+  if (!is.null(seed)) {set.seed(seed)} #if seed is not NULL, set seed to the specified seed number
   
   df <- data.frame(x = rep(NA, n_steps), y = rep(NA, n_steps), time = 1:n_steps)
   
@@ -28,7 +30,8 @@ random_walk  <- function (n_steps) {
   
 }
 
-data1 <- random_walk(500)
+#Make plot1 become a reproducible simulation of Brownian motion
+data1 <- random_walk(500, seed = 10) #set a seed for data1, so plot1 is reproducible and should always be the same
 
 plot1 <- ggplot(aes(x = x, y = y), data = data1) +
   
@@ -40,7 +43,7 @@ plot1 <- ggplot(aes(x = x, y = y), data = data1) +
   
   ylab("y-coordinate")
 
-data2 <- random_walk(500)
+data2 <- random_walk(500) #no seed is specified for data2, so plot2 would be random
 
 plot2 <- ggplot(aes(x = x, y = y), data = data2) +
   
