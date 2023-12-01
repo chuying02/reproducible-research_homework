@@ -17,12 +17,19 @@ https://github.com/chuying02/logistic_growth
 3. According to the transformation, $\alpha = 1.515$ (p = $2.28 \times 10^{-10}$, statistically significant) while $\beta = 1181.807$ (p = $6.44 \times 10^{-10}$, statistically significant). The values I got for $\alpha$ and $\beta$ are the same to those given by the "dsDNA" group in Table 2 of the paper.
 4. The code that I have used to reproduce the figure is the following:
 ```
-#install.packages("ggplot2")
+install.packages("ggplot2")
 library(ggplot2)
+data <- read.csv("question-5-data/Cui_etal2014.csv")
+
+# logistic transformation
+log_genome_length <- log(data$Genome.length..kb.)
+log_virion_volume <- log(data$Virion.volume..nm.nm.nm.)
+
+# plotting
 ggplot(data, aes(x = log_genome_length, y = log_virion_volume)) +
-  geom_point() + # Scatter plot with data points
-  geom_smooth(method = "lm", se = TRUE) +  # Draw a linear regression line with the confidence interval
-  labs(x = "Log[Genome Length (kb)]", y = "Log[Virion Volume (nm³)]") +
+  geom_point() + #scatter plot with data points
+  geom_smooth(method = "lm", se = TRUE) +  #draw a linear regression line with the confidence interval
+  labs(x = "log [Genome Length (kb)]", y = "log [Virion Volume (nm3)]") +
   theme_bw()
 ```
 
