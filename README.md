@@ -15,7 +15,18 @@ https://github.com/chuying02/logistic_growth
 2. We can apply logarithmic transformation to both parameters (virion volume and genome length), so that the allometric equation will be transformed into a linear expression:
  $$log(V) = log(\beta) + \alpha \cdot log(L)$$
 3. According to the transformation, $\alpha = 1.515$ (p = $2.28 \times 10^{-10}$, statistically significant) while $\beta = 1181.807$ (p = $6.44 \times 10^{-10}$, statistically significant). The values I got for $\alpha$ and $\beta$ are the same to those given by the "dsDNA" group in Table 2 of the paper.
-4. Reproduce the figure
+4. The code that I have used to reproduce the figure is the following:
+```
+#install.packages("ggplot2")
+library(ggplot2)
+ggplot(data, aes(x = log_genome_length, y = log_virion_volume)) +
+  geom_point() + # Scatter plot with data points
+  geom_smooth(method = "lm", se = TRUE) +  # Draw a linear regression line with the confidence interval
+  labs(x = "Log[Genome Length (kb)]", y = "Log[Virion Volume (nm³)]") +
+  theme_bw()
+```
+
+5. The estimated volume of a 300kb dsDNA virus is $6698076nm^3$
 
 ## Instructions
 
