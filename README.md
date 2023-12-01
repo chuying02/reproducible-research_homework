@@ -11,8 +11,11 @@ https://github.com/chuying02/logistic_growth
 ![Changes made](changes_made.png)
 
 ### Question 5
-- The data table contains 33 rows and 13 columns.
-
+1. The data table contains 33 rows and 13 columns.
+2. We can apply logarithmic transformation to both parameters (virion volume and genome length), so that the allometric equation will be transformed into a linear expression:
+ $$log(V) = log(\beta) + \alpha \cdot log(L)$$
+3. According to the transformation, $\alpha = 1.515$ (p = $2.28 \times 10^{-10}$, statistically significant) while $\beta = 1181.807$ (p = $6.44 \times 10^{-10}$, statistically significant). The values I got for $\alpha$ and $\beta$ are the same to those given by the "dsDNA" group in Table 2 of the paper.
+4. Reproduce the figure
 
 ## Instructions
 
