@@ -32,8 +32,14 @@ ggplot(data, aes(x = log_genome_length, y = log_virion_volume)) +
   labs(x = "log [Genome Length (kb)]", y = "log [Virion Volume (nm3)]") +
   theme_bw()
 ```
-
 5. The estimated volume of a 300kb dsDNA virus is $6698076nm^3$
+
+### Bonus question -- reproducibility vs. replicability
+Reproducibility refers to the case where the same set of experimental results is obtained using the same data and analytic methods. It indicates that the results are consistent when different people work on the same set of data with the same method. Reproducibility allows people to check previous work published by researchers simply by using the same set of methods and analytic tools to process their published data. In contrast, replicability refers to the case where different research groups, using independent study designs (methods) and data, can come to the same conclusions. It indicates consistency in the scientific findings, which can be obtained through different approaches. 
+
+Git is a version control tool that maintains a history of all changes applied to the code. This historical record enhances reproducibility, as people can review historical modifications made to the analysis and revert to any previous version whenever appropriate. GitHub is a platform that integrates Git and allows people to collaborate more easily. People can upload and share their code and scripts on GitHub, and the transparency allows their works to be reproduced by others. Enhanced transparency and accessibility in science improve the reliability of code and data, hence improving reproducibility and replicability of scientific research.
+
+However, Git and GitHub do possess limitations. Although they ensure transparency in the code, they do not cover other aspects of reproducible research such as experimental design, data collection methods, as well as data interpretations. Therefore, they are primarily used for handling digital data rather than keeping track of laboratory experiments. In addition, they do not keep a record of changes in the computational environment such as software versions, which are also important for reproducing the same results. Lastly, accessibility of data may bring privacy concerns as some confidential metadata may not be appropriate to be shared with the public. Therefore, data access and confidentiality need to be managed carefully.
 
 ## Instructions
 
